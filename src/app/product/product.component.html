@@ -1,0 +1,22 @@
+    <div class="item-medium-1__alert">Sale</div>
+    <div class="item-medium-1__image image" style="background-image: url({{item.imageUrl}})">
+        <a (click)="addToCart(item)" class="item-medium-1__action">Add to Cart</a>
+    </div>
+    <a href="#">
+        <h4>{{item.name}}</h4>
+        <div class="flex-row">
+            <div>
+                <del *ngIf="item.discount">${{item.discount}}</del>
+                <span [ngSwitch] = "fontSize">
+                    <span *ngSwitchCase="1" [ngClass]="'red'" [ngStyle]="{'font-size': '10px'}" class="lable">${{item.price}}</span>
+                    <span *ngSwitchCase="2" [ngClass]="'yellow'" [ngStyle]="{'font-size': '15px'}" class="lable">${{item.price}}</span>
+                    <span *ngSwitchCase="3" [ngClass]="'green'" [ngStyle]="{'font-size': '20px'}" class="lable">${{item.price}}</span>
+                </span>
+            </div>
+        </div>
+    </a>
+    <div class="crud-actions">
+        <a routerLink="product-details"><i class="far fa-eye"></i></a>
+        <a routerLink="update-product"><i class="fas fa-edit"></i></a>
+        <a href="#"><i class="fas fa-trash-alt"></i></a>
+    </div>
